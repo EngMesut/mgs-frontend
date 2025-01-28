@@ -16,13 +16,13 @@ export const AuthProvider = ({ children }) => {
     if (username === "MESUT" && password === "samesoft@2025") {
       const userData = {
         username: "admin",
-        fullName: "Admin User",
+        fullName: "MESUT MAHAD MOHAMED",
         gender: "Male",
         nationality: "Somali",
-        phone: "+252 61 XXX XXXX",
-        email: "admin@example.com",
+        phone: "+252 617678646",
+        email: "mesutmahad@gmail.com",
         profilePicture: "/img/PROFILE PIC.ico",
-        address: "123 Main St, Mogadishu, Somalia",
+        address: "Jawhara st, Mogadishu, Somalia",
       };
       setUser(userData);
       localStorage.setItem("rememberedUser", JSON.stringify(userData));
