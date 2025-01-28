@@ -31,33 +31,30 @@ const Login = () => {
         isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
       }`}
     >
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleDarkMode}
+        className={`absolute top-4 right-4 p-2 rounded-full ${
+          isDarkMode
+            ? "bg-gray-800 text-yellow-300"
+            : "bg-gray-200 text-gray-800"
+        }`}
+      >
+        {isDarkMode ? (
+          <Sun className="h-5 w-5" />
+        ) : (
+          <Moon className="h-5 w-5" />
+        )}
+      </button>
+
       <div
         className={`w-full max-w-md space-y-8 p-6 rounded-lg transition-all duration-200 ${
           isDarkMode ? "bg-gray-800" : "bg-gray-200"
         }`}
-        // style={{
-        //   boxShadow: isDarkMode
-        //     ? "0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3)"
-        //     : "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06)",
-        // }}
       >
-        {/* Logo and Theme Toggle */}
-        <div className="flex justify-between items-center">
-          <img src="/img/logo-dark.png" alt="MOF Logo" className="h-10 w-16" />
-          <button
-            onClick={toggleDarkMode}
-            className={`p-2 rounded-full ${
-              isDarkMode
-                ? "bg-gray-800 text-yellow-300"
-                : "bg-gray-200 text-gray-800"
-            }`}
-          >
-            {isDarkMode ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </button>
+        {/* Centered Logo */}
+        <div className="flex justify-center">
+          <img src="/img/logo-dark.png" alt="MOF Logo" className="h-auto w-auto mt-4" />
         </div>
 
         {/* Heading */}
