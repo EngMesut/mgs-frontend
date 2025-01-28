@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import {
   Home,
   Building2,
@@ -166,6 +168,13 @@ const menuItems = [
 ];
 
 function Sidebar({ onClose, searchQuery }) {
+  const navigate = useNavigate();
+   const { logout} = useAuth();
+    const handleLogout = () => {
+      logout();
+      navigate("/login");
+  };
+  
   const [openItems, setOpenItems] = useState([]);
 
   const toggleItem = (label) => {
@@ -206,10 +215,12 @@ function Sidebar({ onClose, searchQuery }) {
         <div className="flex items-center justify-between ">
           <div className="flex items-center gap-2 ">
             <img src="/img/logo-dark.png" alt="MOF Logo" className="h-8 w-16" />
-            <span className="font-semibold text-gray-900 dark:text-white">
-              MOF
-            </span>
+
+            <h1 className="text-base font-semibold sm:text-sm text-gray-900 dark:text-white">
+              WASAARADA <br /> MAALIYADA JFS.
+            </h1>
           </div>
+
           <Button
             variant="ghost"
             size="icon"
@@ -284,13 +295,8 @@ function Sidebar({ onClose, searchQuery }) {
           <Button
             variant="ghost"
             className="w-full justify-start text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
-            onClick={() => {
-              // Add logout functionality here
-              console.log("Logout clicked");
-            }}
-          >
-            <LogOut className="mr-2 h-4 w-4" />
-            Logout
+            onClick={handleLogout}> <LogOut className="mr-2 h-4 w-4" />
+            LogOut
           </Button>
           <p className="px-3 py-2 text-xs text-gray-500 dark:text-gray-400">
             © 2025 MOF. All rights reserved.
